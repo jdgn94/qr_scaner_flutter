@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:qr_scaner/src/providers/db_provider.dart';
 
-class ScansBlock {
-  static final ScansBlock _singleton = new ScansBlock._();
+class ScansBloc {
+  static final ScansBloc _singleton = new ScansBloc._();
 
-  factory ScansBlock() {
+  factory ScansBloc() {
     return _singleton;
   }
 
-  ScansBlock._() {
+  ScansBloc._() {
     // Aqui se obtendra la data al iniciar la aplicacion
     getScans();
   }

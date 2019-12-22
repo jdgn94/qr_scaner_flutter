@@ -4,7 +4,8 @@ import 'package:qr_scaner/src/pages/maps_page.dart';
 import 'package:qr_scaner/src/pages/urls_page.dart';
 
 import 'package:barcode_scan/barcode_scan.dart';
-import 'package:qr_scaner/src/providers/db_provider.dart';
+import 'package:qr_scaner/src/block/scans_bloc.dart';
+import 'package:qr_scaner/src/models/scan_model.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final scansBloc = new ScansBloc();
   int actualPage = 0;
 
   @override
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.delete_forever),
-          onPressed: () {},
+          onPressed: scansBloc.deleteAllScans,
         ),
       ],
     );
@@ -94,7 +96,7 @@ class _HomePageState extends State<HomePage> {
 
     if (futureString != null) {
       final scan = ScanModel(value: futureString);
-      DBProvider.db.newScan(scan);
+      scansBloc.addScan(scan);
     }
   }
 }

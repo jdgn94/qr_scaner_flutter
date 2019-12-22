@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:qr_scaner/src/providers/db_provider.dart';
+import 'package:qr_scaner/src/block/scans_bloc.dart';
 
 class UrlsPage extends StatelessWidget {
+  final scansBloc = new ScansBloc();
+
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<ScanModel>>(
-      future: DBProvider.db.getScansType('http'),
+    return StreamBuilder<List<ScanModel>>(
+      stream: scansBloc.scansStream,
       builder: (BuildContext context, AsyncSnapshot<List<ScanModel>> snapshot) {
         if (!snapshot.hasData) {
           return Center(child: CircularProgressIndicator());
@@ -26,7 +29,7 @@ class UrlsPage extends StatelessWidget {
               background: Container(
                 color: Colors.redAccent,
               ),
-              onDismissed: (direction) => DBProvider.db.deleteScan(scans[i].id),
+              onDismissed: (direction) => scansBloc.deleteScan(scans[i].id),
               child: ListTile(
                 leading: Icon(
                   Icons.find_in_page,
