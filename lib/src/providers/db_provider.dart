@@ -1,6 +1,8 @@
 import 'dart:io';
 
+// esto se hace para que cuando se importe este archivo en cualquier otra libreria se pueda acceder al scan_model sin tener que importarlo en dicho documento
 import 'package:qr_scaner/src/models/scan_model.dart';
+export 'package:qr_scaner/src/models/scan_model.dart';
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -19,9 +21,9 @@ class DBProvider {
   }
 
   initDB() async {
-    Directory documentDirectory = await getApplicationDocumentsDirectory();
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
 
-    final path = join(documentDirectory.path, 'ScansDB.db');
+    final path = join(documentsDirectory.path, 'ScansDB.db');
 
     return await openDatabase(path, version: 1, onOpen: (db) {},
         onCreate: (Database db, int version) async {
@@ -111,5 +113,7 @@ class DBProvider {
   deleteAllTypeScans(String type) async {
     final db = await database;
     final res = await db.delete('Scans', where: 'type = ?', whereArgs: [type]);
+
+    return res;
   }
 }

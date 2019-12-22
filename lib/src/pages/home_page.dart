@@ -4,6 +4,7 @@ import 'package:qr_scaner/src/pages/maps_page.dart';
 import 'package:qr_scaner/src/pages/urls_page.dart';
 
 import 'package:barcode_scan/barcode_scan.dart';
+import 'package:qr_scaner/src/providers/db_provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -82,14 +83,18 @@ class _HomePageState extends State<HomePage> {
     // https://www.anime-planet.com/
     // geo:40.63883600098225,-73.76698866328127
 
-    try {
-      futureString = await BarcodeScanner.scan();
-    } catch (e) {
-      futureString = e.toString();
-    }
+    // try {
+    //   futureString = await BarcodeScanner.scan();
+    // } catch (e) {
+    //   futureString = e.toString();
+    // }
+    futureString = 'https://www.anime-planet.com/';
 
     print('future string $futureString');
 
-    if (futureString != null) print('Yupi....... \\o/ no explote');
+    if (futureString != null) {
+      final scan = ScanModel(value: futureString);
+      DBProvider.db.newScan(scan);
+    }
   }
 }
