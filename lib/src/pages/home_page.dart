@@ -77,9 +77,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _scanQR() async {
-    print('Quiero escanear');
-
     String futureString = '';
+
+    // https://www.anime-planet.com/
+    // geo:40.63883600098225,-73.76698866328127
 
     try {
       futureString = await BarcodeScanner.scan();
@@ -88,5 +89,7 @@ class _HomePageState extends State<HomePage> {
     }
 
     print('future string $futureString');
+
+    if (futureString != null) print('Yupi....... \\o/ no explote');
   }
 }
