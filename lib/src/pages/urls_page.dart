@@ -9,8 +9,10 @@ class UrlsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    scansBloc.getScans();
+
     return StreamBuilder<List<ScanModel>>(
-      stream: scansBloc.scansStream,
+      stream: scansBloc.scansStreamHttp,
       builder: (BuildContext context, AsyncSnapshot<List<ScanModel>> snapshot) {
         if (!snapshot.hasData) {
           return Center(child: CircularProgressIndicator());
@@ -33,7 +35,7 @@ class UrlsPage extends StatelessWidget {
               onDismissed: (direction) => scansBloc.deleteScan(scans[i].id),
               child: ListTile(
                 leading: Icon(
-                  Icons.find_in_page,
+                  Icons.http,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(scans[i].value),

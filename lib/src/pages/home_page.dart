@@ -85,25 +85,15 @@ class _HomePageState extends State<HomePage> {
   void _scanQR(BuildContext context) async {
     String futureString = '';
 
-    // https://www.anime-planet.com/
-    // geo:40.63883600098225,-73.76698866328127
-
-    // try {
-    //   futureString = await BarcodeScanner.scan();
-    // } catch (e) {
-    //   futureString = e.toString();
-    // }
-    futureString = 'https://www.anime-planet.com/';
-
-    print('future string $futureString');
+    try {
+      futureString = await BarcodeScanner.scan();
+    } catch (e) {
+      futureString = e.toString();
+    }
 
     if (futureString != null) {
       final scan = ScanModel(value: futureString);
       scansBloc.addScan(scan);
-
-      final scan2 =
-          ScanModel(value: 'geo:40.63883600098225,-73.76698866328127');
-      scansBloc.addScan(scan2);
 
       if (Platform.isIOS) {
         Future.delayed(Duration(milliseconds: 750), () {
