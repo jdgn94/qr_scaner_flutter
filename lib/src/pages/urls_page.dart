@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:qr_scanner/src/providers/db_provider.dart';
 import 'package:qr_scanner/src/block/scans_bloc.dart';
+import 'package:qr_scanner/src/utils/scans_util.dart' as utils;
 
 class UrlsPage extends StatelessWidget {
   final scansBloc = new ScansBloc();
@@ -40,7 +41,7 @@ class UrlsPage extends StatelessWidget {
                   Icons.chevron_right,
                   color: Colors.grey,
                 ),
-                onTap: () {},
+                onTap: () => utils.launchURL(scans[i], context),
               ),
             );
           },
