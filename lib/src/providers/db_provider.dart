@@ -1,8 +1,8 @@
 import 'dart:io';
 
 // esto se hace para que cuando se importe este archivo en cualquier otra libreria se pueda acceder al scan_model sin tener que importarlo en dicho documento
-import 'package:qr_scaner/src/models/scan_model.dart';
-export 'package:qr_scaner/src/models/scan_model.dart';
+import 'package:qr_scanner/src/models/scan_model.dart';
+export 'package:qr_scanner/src/models/scan_model.dart';
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';

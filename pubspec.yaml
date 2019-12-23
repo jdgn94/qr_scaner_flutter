@@ -1,4 +1,4 @@
-name: qr_scaner
+name: qr_scanner
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -28,6 +28,8 @@ dependencies:
   barcode_scan: ^1.0.0
   sqflite: ^1.2.0
   path_provider: ^1.5.1
+  url_launcher: ^5.4.1
+  flutter_map: ^0.8.0
 
 dev_dependencies:
   flutter_test:

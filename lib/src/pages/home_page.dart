@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:qr_scaner/src/pages/maps_page.dart';
-import 'package:qr_scaner/src/pages/urls_page.dart';
+import 'package:qr_scanner/src/pages/maps_page.dart';
+import 'package:qr_scanner/src/pages/urls_page.dart';
 
 import 'package:barcode_scan/barcode_scan.dart';
-import 'package:qr_scaner/src/block/scans_bloc.dart';
-import 'package:qr_scaner/src/models/scan_model.dart';
+import 'package:qr_scanner/src/block/scans_bloc.dart';
+import 'package:qr_scanner/src/models/scan_model.dart';
 
 class HomePage extends StatefulWidget {
   @override

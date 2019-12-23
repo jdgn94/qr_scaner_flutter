@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:qr_scaner/src/providers/db_provider.dart';
-import 'package:qr_scaner/src/block/scans_bloc.dart';
+import 'package:qr_scanner/src/providers/db_provider.dart';
+import 'package:qr_scanner/src/block/scans_bloc.dart';
 
 class UrlsPage extends StatelessWidget {
   final scansBloc = new ScansBloc();

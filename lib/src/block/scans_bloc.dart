@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:qr_scaner/src/providers/db_provider.dart';
+import 'package:qr_scanner/src/providers/db_provider.dart';
 
 class ScansBloc {
   static final ScansBloc _singleton = new ScansBloc._();
